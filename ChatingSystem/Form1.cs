@@ -13,6 +13,7 @@ namespace ChatingSystem
     public partial class Anmelden : Form
     {
         public string username;
+        public string password;
 
         
         public Anmelden()
@@ -22,9 +23,21 @@ namespace ChatingSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Aufruf der Methode mit zwei Parametern (Name und Passwort)
-            bool istKontoGültig = DBcontroller.AccountChecker("Benutzername", "Passwort");
+            username = txtUsername.Text;
+            password = txtPassword.Text;
 
+            bool isValid = DBcontroller.AccountChecker(username, password);
+
+            if (isValid)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Der Benutzer existiert nicht");
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+            }
           
         }
 

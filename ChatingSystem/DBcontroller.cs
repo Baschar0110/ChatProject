@@ -19,7 +19,7 @@ namespace ChatingSystem
                     string zeile;
                     while ((zeile = datei.ReadLine()) != null)
                     {
-                        string[] teile = zeile.Split(';');
+                        string[] teile = zeile.Split(';');   
                         if (teile.Length == 2)
                         {
                             string dateiNickname = teile[0].Trim();

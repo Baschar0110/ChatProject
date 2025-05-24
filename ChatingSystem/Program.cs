@@ -16,17 +16,13 @@ namespace ChatingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+            string username;
             Anmelden loginForm = new Anmelden();
-            if (loginForm.ShowDialog() == DialogResult.OK)
-            {
-                // Wenn Login erfolgreich war
-                Chat chat = new Chat(loginForm.username);
-                Application.Run(chat);
-            }
-            Anmelden F1 = new Anmelden();
-            string name = F1.username;
-            Chat F2 = new Chat(name);
+            Application.Run(loginForm);
+            username = loginForm.username;
+            Chat chat = new Chat(username);
+            Application.Run(chat);
+
 
 
         }
